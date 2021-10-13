@@ -1,6 +1,6 @@
-package com.cloud.jmc;
+package com.cloud.jmc.model;
 
-public class Box {
+class Box {
 
     private static final char SPACE = ' ';
     private char mark;
@@ -9,16 +9,16 @@ public class Box {
         mark = SPACE;
     }
     
-    public char value() {
+    char getMark() {
         return mark;
     }
-    
-    public boolean isBlank() {
-        return mark == SPACE;
+        
+    void setMark(char mark) {
+        this.mark = mark; 
     }
     
-    public void setMark(char mark) {
-        this.mark = mark; 
+    boolean isBlank() {
+        return mark == SPACE;
     }
     
     @Override

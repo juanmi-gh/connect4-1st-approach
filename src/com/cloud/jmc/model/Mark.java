@@ -1,11 +1,11 @@
-package com.cloud.jmc;
+package com.cloud.jmc.model;
 
-public enum Mark {
+enum Mark {
 
     O_MARK('O'),
     X_MARK('X');
     
-    public final char value;
+    final char value;
     
     Mark(char mark) {
         this.value = mark;

@@ -1,46 +1,30 @@
 package com.cloud.jmc;
 
-import static com.cloud.jmc.Mark.*;
+import com.cloud.jmc.model.Game;
+import com.cloud.jmc.view.View;
 
 public class TicTacToe {
     
-    Player[] players;
-    Board board;
-    Turn turn;
+    private final View view;
     
     public static void main(String[] args) {
 
-        System.out.println("New Game created!");
         new TicTacToe().play();
     }
     
     public TicTacToe() {
-        players = new Player[] {new Player(O_MARK), new Player(X_MARK)};
-        board = new Board();
-        turn = new Turn();
+        view = new View(new Game());
     }
 
-    public void play() {
-
+    private void play() {
+        
         do {
-            board.display();
-            Player currentPlayer = turn.next(players);
-            currentPlayer.move(board);
+            view.playGame();
 
-        } while(board.isUnsolved());
+        } while(view.keepsPlaying());
 
-        finishGame();
+        view.close();
     }
+    
 
-    private void finishGame() {
-        
-        board.display();
-        
-        if (board.containsLine()) {
-            System.out.println("Player " + turn.current(players).mark() + " WINS!");            
-        
-        } else {
-            System.out.println("TIE! No more moves available.");
-        }       
-    }
 }
