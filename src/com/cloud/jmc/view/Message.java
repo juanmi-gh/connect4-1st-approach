@@ -1,6 +1,6 @@
 package com.cloud.jmc.view;
 
-public enum Message {
+enum Message {
 
     TITLE("\r\n" + 
             "  _    _    _     _    _    _     _    _    _  \r\n" + 
@@ -27,7 +27,7 @@ public enum Message {
         value = message;
     }
     
-    public String getValue() {
+    String getValue() {
         return value;
     }
 }

@@ -2,7 +2,7 @@ package com.cloud.jmc.view;
 
 import static com.cloud.jmc.view.Message.*;
 
-import com.cloud.jmc.model.Game;
+import com.cloud.jmc.controller.Logic;
 import com.cloud.jmc.utils.Console;
 
 public class View {
@@ -11,16 +11,14 @@ public class View {
     private final GameView gameView;
     private final PlayerView playerView;
 
-    public View(Game game) {
-        boardView = new BoardView(game);
-        gameView = new GameView(game);
-        playerView = new PlayerView(game);
+    public View(Logic logic) {
+        boardView = new BoardView(logic);
+        gameView = new GameView(logic);
+        playerView = new PlayerView(logic);
     }
 
     public void playGame() {
 
-        Console.getInstance().writeln(TITLE.getValue());
-        Console.getInstance().writeln(NEW_GAME.getValue());
         gameView.resetGame();
 
         do {
